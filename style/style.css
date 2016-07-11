@@ -75,6 +75,10 @@ a:active {
 		4px 4px 0 #101010;
 }
 
+/*.wrapper {
+	top: 100px;
+}*/
+
 .wrapper div {
 	position: absolute;
 }
