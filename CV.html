@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAABmCAMAAAAOARRQAAABelBMVEUjJSU6OzshIyM5OjoqKy02NjgsLS01NTYjJCUzNTUgISMlJSc0NTUvMDA6PDwlJyg1NjYoKis2NjYrLS02ODkpKyw0NDYrLC04ODovLzA4Ojo0NDUtLy86OjwjIyU4OTosLS82ODgtLS8hIyQvMTEnKCooKSsrKy0qLCwkJSUnKCkrLCwpKiwwMjIxMzMqLC0tLS0pKissLC00NTYwMDIwMTQpKysoKSovMDEtLzA2OTkxMzUrKywvLy8qKyszNTY5OzsqKiw6OjswMDExNDUoKiozNDUvMDIyNDY1Njg2Njk5OTozMzU0NjY4ODkiIyUiIyQ4OTkuMDEmKCowMjQwMTErLS4qKywwMTMhIiMpKiopKy0tLjAkJScxNDQvLzExNDYyNDQmKCk5OTslJig5OjskJSYxMzQrLS8gISIwMTIoKCk1NTUlJSUnJygwMDA4ODgiIiMhISI8PDw6Ojo5OTkpKSojIyQ7OzsyMjIpKSssLCw6Ozw1NjlrfLakAAAg2UlEQVR42jR6i3ea6rYvPgANIAhVXh8WvkQlioUiFlFcBtAmoiRNdzxqu9p0J7vrdK29zuPeex77nnvO/35n1r1ndHRktI0jTOacv/l7lCBK5UqVpOha/YxmWK7BC4TQFKVXrbYsnimqxuuMVlOQ0XltWjUdCwRJ1M+tC1KudOs9q6+da2adUewG0SC0SwELfHtgDds93VEuydEbl3QMWeNoYkR7b/0x1ZRobGI3mLwzAhePqTAwhg6aogjNsGy7/jwQ4rkdqe7CWLxF8k9LfMVFyRS7VJqtkrW8Vt/bkR8FZJao16ipknbC3Yw2lM7laO6HBEOadEZ2tpf65c4v8e3u7FyU6qbiNNyCuzXZ6pawgnwgmrpTT/Q7w2EZmiIJ0dzWDI7mhQ80IfRnMu2kzA5r5r1pIFoia+/d93HRYp1GV8TbrkWoU/+jdI0Ff6yGwTjT1Hn8J+8m1rKpGiYPuNiHnMtNMIv+zpsk84MYTNW1/+DpwXLvckdOCMYowVNPREe0QlM8xRHXXFhcNDzupwsSmb5pH+0t0RP2Qk+QtI7F1Qm6JRC6ZPBtPq/dq/kH+jxtCljn9TIpW6rQIgmSVyj6lPICIw4N/taka41PFUInth0je9+jO6Kt1G4/a7V2LEgG02B0pHVuCZrgltSKMuIl5SyufUv9mYuQi+mFgzbBEtFo2g+Dh4sSTrLNu8JPh00sQydpb00tqXBvqRN7Q7kqzcnIxCGnvZt/WmJacoOEO6Dcn8Qre03pOCSQxbMOXUuDNx9SxuLz4W1I18gvjViQ67zV0rxdWL8Te/TQkuo8STS41DR48W7L6YP2uWIqiUV8rd6Gbf/rnegKZeG8TpAM6afhGze9JAOxbLjsnUXEbrZ9vLYd7MT32cPF5mKKxmjy7huaoD9n62GOxni3iIJwv0IzZAZjdZkUtolCNLVfYZNaquFjGszVVf+J0vrz4CawoKdHnOzb0NMH7CDBOybfYNJ4rfeMyFNjkFYVTzMFs87rnPGXLUOeNKRVc0LnU7/UIgelzsy3CMuth0YfvnY0wsD3vODUL3eJcKqHQpm8yM3XZQWJxO6Un9iYloyyLpOwN2obHy6W6gbpcb44XmyC+mg+itAcaprGcrwZCqMj/GmtKn0zPvpTz/Cv1dw21XwP3cRupg3H3MF/S71eTKj1YrdwKdc2Mw0fRmb2sFf8lW3aU6JbIZSEPqvXvjM7G/aApyXlXeqKfMq0g/Su3rUGJPSPrtGElgknrZM3xUXqsAP6zMCNVn5u8aJnSNpJv2uru7t2jfRziW2+GuhqfldUNbPk71olwo+46ePUo1U3WKk/e5YK07F/wGRgcpODmQnIlVeHCWBE4puBi2jq28UKpqiN1/4UOrGz59TNYrrQHtd+11sG40BGD+pXdelNqGOg4NXe8W4eacJV/NS9/2Umtym6WQqveqR9xdCMElpxnbkalM4Vf9uaEcWZaKdyibEIjWKxJZPN95niCL3GiaXyssIrHxoLkqkzLCXULN46/f2h3tQJgyip+Tk9EAjJ9aJshq7t8X45aowSKspMSvPf7r9R8yxNptIaHS5ozuEm6luPDApugyNP8OaqiQ4BjaequXA54SLC83eHIY2r+CZp4409Xqw8Aa2oI7XkCrQi+in0w5AqF/kLNrcUz+qkl/lAobY1jSnx5OJNhyXIz3qfNFlXc0TKaglNwdWkWYt9QQ1Kr6W8zue21iNrdJk+N5oCr2O9nEtWKC7IS5J/zdDEYrmnAYfg6agCy+qcgz7ZofeDc4PbUWSvkshWuAc7OjiUyLkj+RAtdlwXJcjxdpkTTHDhK8lBCi8+JtvDVL1W6elmOM++YS0LuSlaP1oUvAeiW3cFnvTr8EbTz1tsSMYdGeZe40sRWu5uAfj7q+ZoKv2FNQ0p5XY1lmlcigHZqTPpabufEVrNuNPi165w3uCVQJHyJqmSJ7ZHnguqwtCmwViIJijj04ba2JNYtB+yORf5gg1/9t9iw4vUpeqiunSAbf+IBdj/b+iG2qrHvuNP0Vd/+ThVZT/lrvHYjjgDbbyxaqgHNM2uhxa1GW3UedZYhMMwM4mQhltouK+IV4NdbIQNM+8Yv311RZk9kT4tiYR4LkyFcuPpdcjuhUuFqBAWRZa11lcZ3gEBlXywsNhrt+plISZP5DlsV9l4EgY6J3yZPTUcMrgaWAT3oI79eSbGEbcJpr6BD8kyDiVt+G0/hXosQN4NFXKlfWIfsIs0BHODVok1/IGnKFHJYIquh8Xo+2+bkQNTGgWmN/fZ0Y33LSj6lr1GyV7mWIKg7ZTRZPGuhF/zjRNcQ1UPtSYgnWQxSs0yrVhwNDcdGMNSNe2JT3WuzbAM3HykyAajS3Uphf6STKEqxLas9EnmnhA/lyj9Uj+JoY7SVgVmGLl46Rm2u98sbkap2lzAdKBG4r6LgulQOSSjQv1GWdQ0jtDUK/mAaqM1Uqjpu4k3Rvfvxv7YTxLSK+wN3E5jVIzmF23uZ7hiH/sVP49D7tvoKp4S8b1LuvRlivVB/algbhcFITYVXvDpLzpDfplR2uD5V4XJFxpjmIpLc9Y5sB2TpBRix7Bme6GZIq+06v3XzNeTcA4obQIKxrnT4C2JpOqD92dbmSX8MGazly5EsZVMvSU1f4RZwyu8iQXbVdeLlZrjuTT1jrY1uk5c7iZ7RsvhhluqAkq4JpVQAg7RJFtSu+xgJ8Pv6O1j5DkLxT8mkbfyRW5DrQmG7hiDIjCgBsADbjuof6YHLGeV6a5Q1Smx9joUXPpdaaDx97A/Wq00oJkdR7ZYuQRfS533JtxO1erduqWOYIt3wh0wpbLuCNIYkwxbswbikCUu2CDCS+Q+7rgVtfRcm+SOcdKPRlZ/rE7wNVUEE39KTS5uvUKN1PUnkloPkyzhyGQ8qkouEjJ3H/VXdqG6asSRiw3ecMlBvDDt8dDhBHXMwZ2Cajzjr7/76T+IavqPYvz6r7//E/3X3+N//h/0QozbjPgPiir69P/8X3/9F/yv8b/827/++98WItPu5/Hvwd8YPf5bp/2/lX/T/+Of/0MJ/lYTa+L/Ef+d9vN/3/2T6P/+jyTzu/evf6U7vxN7B6pJkRtAF6jUr8I+P8RsP/ptGhfqFk+pQ/DgAy6NJtRYJdXmp4gK7WLqLKJ+MaKhGjOojvL+SnIWrkpy0SLHDe4QuyNzaEA15mLMCcmE8Em+4HdOihW4/ZWuppJEmzeAwcDtv7MuLc9y2V5atvxXNe3S4DUMt5/Qy2LM9kSYKiVWBuKlfp4nxTntpuW03JbIlkiRvBXmT23g1I2OYe6IizUHPIq6zm6mbfsbteKmi/sg9J+ocQBMctGFO7iljo8TPN+z3jxw4do+ZwfqoR9dkNTKHyM305GpTkfhcHexVkPVGEbUOjuo9f0UMPHBFlGEx0SLvJvVRKTwW7PSew5oPme+E42+frJa9cGt2njS3dK5kIif2eYbhuSEQXEqMVfUjhGIuin0G0/W5ezJyJQy3SpMLai4M0JUWb5u1k9tny5bd1pPwYBpQuDCXZl62xg4CdVEAtflXHs6JKmP/pH6mOl796Lgopj0o8d5kKh00hxG3OSdEE/QBo9Hgr8JJqAeLDwJohG5j/DGh61Rc/+tf22/8kEnxHNCEjo0ElvvGfESZkqmz2BDcKV1H1buSkhkdg7p1IMGs2s17nYjpblrWuE2K9WEO/hcRp5e9oOF/QBmOaDtgil+oaU6szPrdwW65fOB0KUTsVUn7LFU7J8e6cxJIl9+FHw5MQMzuQJ+4oxMH3iW/5GK+hWuG0T+gTLs+fAjdtUd58TmIUq04EeyRCYCjkldow234aIgR5bqwrtZosZ+6YEqAmDqatJ9lWasz4IquKALPtd92hGI3Z2BdzzZue+REl1Om4DIWD+RrtUTOJLI+S0jHowXXdAxsGLSd40zYNuEUlOGhrwL6c7tcOtUOvpJCP7QBQS19H+GvZn05ewjlVLz+IGKoC9TyfQjLMBNmXCuqqtTdOSukZW48B0HqgSTCBrBnlFvF4CG2Su7yFzqmJFURK3UmTT3ru050r0ptUpMilYnBJWfl2Bv6kPlUuE1kxxpdzui9AubsR2N2boVSu81OulAwBqoSr1LZ0LLYOomyZHmjqnXlP72s8LnDouEJjtodBvdHaG1jMySYO7crWd90MpCRyCG14vb5IE7Arupw/y/RcCm/Tm3zK6zYj8PYNaGldiUfkB/LHWcmf2lVM+mwyU27a0qq2tscrQ/vzBjN26DnntIrOyGizzXK35yKQdYnUABkyN4saz3WD/viF+eCcsXnIajdWYJWaYHRstIis9CS+tqnFGmz2j5uzfr3Z4prqgK4XOT/PyftvjZqIm8lhkfxJ7Ol3CJF1piYBGAG8wtAk56Drw1YwmOpcz+NdfkSpSLplRXLXHL0Rquj6YW/gabqgK7Dgr6NwtH0B/AN7XrN+MVJ6AmXmUuqmQulrNNYPmH0RoDogydOKLo/QbfYNARSQQKISRCzRXU+q9WWJFL3LZW6u34CkeG97xC0NNGaJ0bvK6SnZS3zPskr5EtuCgjMWR5o2x5BqhKmDWJPRe7JMEOyRb5uUKlHaGVtq5ivSOaSliSXp9SQm2qk8MRJh10MAp9QQ2H5t59J8rjiwSZtoIfMGjlLPVNdYl/LBR0AO6WLGDmkLkIPRE45Y9MftdAK/yNu1Hn6tzOQTesgQ+8fSzB19wO91vCnO23vOWQdwJ63SJrYjdfKFW6W281PKs2k8iT9ai1cgJ4sa3xqdvmtxR8/+D1B8AKc2u+6JftryRhMWSQtoSBgIyyQGyxcnELuAasXN12oSriU4RMz1DD6RL0TSV+om7i1Yt+jEE/jnawM8cX/UhN4nkiv/w9eALrzNhXuQfOzFL0Fi6SjF7/4Qn8rLYBoa85cvgAnkCEBP+HPbEnquVXCZsMS/yzYw2Vru60P/+nJPYKkzZFjmbykzUoEqV836T5q3fP/L383dF82tx18/AZgZczMAgyeWYKmSZIqtHL+e+O4ZRcq9VI3g/qPeCoiK4pcgEqdbS0S/Be54sbVQOuJVPNBblIghzeasNu7h/g+Sz1IdhI5lCwq1nUb3Ji4OCIcqQZqtqJ5w7rXrg/DA9IgVmEGhDgGecEwnCTHffXcXs0V3OCEVzYDKS1vp/oX+ng+6XVU86UjA6FMO2RXOOOrqY1GgPvrAk9HV/BXtCu5RuwF8qgdGDLsBcui4E33ymdBip1X8uKyhIWT8qNRDsXz+gvO9UiEC0d8RG4Tf2x8H4slljgHtCBcxHLTWOYJm5H/fCPCzOgf9qgOUxTRZ0Pc6ha5yLuLVT9ntvIa6gacE99mCovdUumTQdRP4RPsS9129eEe2uSvvGh0bV4Y3QPPhPZMqhZWSMa5R0Hc1SGO4IVOQc0FrirlibTVfKRrYkD8kz3b+X65/QkUNaZdrdl3mCap0Hf3YcCw/LiouJYNbqz88UqeDYv93yO7vvXtgl4XCyAO4ODkY6W+83+LZU//p3/zXNGGrUKClCiOnL27iJZbNWDF02XXAOeFlB7IaADoMH1Yqr+UP9biyZDEa/iJt4MDeIz6GKTdLVBfWGVtRN4fdT2rgReX8UXwF2zOrradm4J0nyTgdPnai3RvzpZvCKDUqjOwD/QA6EDaMCLewX6QWYVnHY1sx1bd8ovYnPm1ZvPH+rE20lWjOCnZ66/xDt0QAl15FjfBcZp+i9OU0RNPQ0t3x2pSNWo8eiYudwsnuP1Hq6iH1LJCJynkYsfgJ0p3pF6SoQk2l+jqE8CPk+ziGJRSKjs+W5AO185umPdkYzlK4wl7TC9NxyyDP7ZoyYVoXiuS6SjnInlLWrwz1i8bGTKXX0AVQWkSfIlglW3zRJRJ8bg5VgE6ZEnqNu9B++0GNQvDQJvFize4ESNKBJP+8vA3LM4AX5SIBq08Mob+7QMTCZx4nwP/64+4BnlZC+8WtlP/CXw6t1PwMwkJ3jhP1FiXLhDF/3I6FGUzO2DSi9ABxKyyL9paZxSEz40ZCPQToDAJu1959k7QdbVxgB4icsu2s4zsTPJhcEDo+N1GX4zSk/wriRh8AqwL62972i9HJHd1ydaLXVzvKvOfGGw5RVcUVMiKXFH4APdkQU/dc5BX0YfKTNZYXCW9mb8bc8mufoQP6BbdQmT99ZjoYfr/go4TgQX9IDgztim7wyFeGMfbNaeqj8Dzs38pgcqwSv2hbqB3oSGKWKy+sesY7p57wAHldqE6NDudk/W7s/zjrK4rZFlFvaGxnSZdHbc1y47qDN6xkoK8O3bfr2j41dlJZ71rB4dlDqapPFa8N6xBrprUdtenUCHwxKNhw1uuTBh+9uU45k4REpQABN2bAO9DSLqoIL26gNroWgup5pUMxHUNSq4Gyz47vBPvilpo5f9OYI2ddAqTqmnxXERxQJ3UK8fHbVE9HagHi3+tqNRoNsArdmAxHA5LwtQo9ZAaNKUTljnokljo2x8scqVpEEIPc01fPCdHOCg0DeWBz8D5TVAAfx8aRH5X2ZYNI3ebKDZdeJ+oBDAxmRqJ30Eh2/DaeAy5diVNMpEDmXiPDsGTzBLXy8eVDdJoIafgx/gxMyQi454QrW56nCyeELgSuNNEmYkflF+t3CZQOVRWjKhIuCclmQSlAXT3+4JGG75B4t/5hQ+ldMP4LsAW6z3XmU6IJJwpnGVnsgUZhoY1fZlwTR8wSU7xRejf2uCx9Z5trVTRRJP9KnEb134dEieil6eCOGWgboI7xsqsqM99jfJLTePjygKlH2CVxxsse9QRzTBFjD/Kjqitr/CCTBt/SJ6nLxz7cKP9pFqBpp0lN5y+adKNsZjrPuroemZauH9aTTFD3EKHW8S55XBLFQAt1jgxTQCTwxmx/JyfsZDN1RroN3VaxpSenpIX7K+ZbL8VdlQDcI4Cbzg3QJLa9yVqNxUelu+EtxLVqeekaAvSJkO6sSVqbUajxqhKshNpvZqoeApF0k/0P0ikkwUcbdwc4A1ejN7Oo0O15kG7hTMoK3hZRBCX7YYeLW0wvcXx/18n/u37yLgzBYVBUvORGli+sfRcX/74uD6P4hq+7xu54TlWJLFzT63uwUDwuEDdOjJQqx7JV+ZjaEAPi7t0MMrR4Q8Rkf18uxD6RK0RKh0hL8YU+DeL97i4pa5ZSyAfXKwZRS/8gXcxdZXm62RBDj8U3sN8x95b5PpPs/mCBKYvpaA50pN5Ct/499AFTtwQ5vgeSh+NHrKIi4NVpwM/XzRaNfJD856lPE6M21zWPguFsH7jbLVyEDfRmt4VwrhCJ5VTYmcSPfGgO5clfN+vbaDZ7sakU5+2vZ2WCDY031NxJarVytfDDVtiafcTGO2rJ/taoL3zChN2qmjxofczTOYQPPVQPh0JVtYgdUQINcSiNEEy58UdYXX1MpWUCEBx7LbcGtAm8XWRQTVOaoV3ySri4RShhs/B/0m4jX6OAwXOvcA09bNSG4czEGv/Wey6V/jbTCNTW6awXdNTcA1GsPe1E9fZdGl7R0vyoVpIdJtfC6d32NNErrvq/R+d65VG+YOwRXppXxOCYyGNSf1K3x6VxAW/vtz4EC1SgCOSPdN62sLsoIzuDfg8GwZAbquVO8HIuFP/ToVoeUB7nnwMF35a1wK1tI6fkrqFKhQdeJpwyls0pIy8AZde3/6LUUbFaYJthyUJSU/kqDXTLQElnn0Jr4B2RVghNrmNmoEn7pXIeshPguXVsvwoTdmClq49JJU3LWhHyWTrJL9bRP6VKv3tZoA/th77p5Jw++OEENvyvWy/pNeExiDUVQaXIRGh8xySZTI36yueFaSXo1uJY0RnXYgEOoWWOJHeaVuX/bGNhHsh2yinznl/++NJcE9j6fBPRcBdq9hb8awNw8U7Bl6GM7x69EDOIIbX/npZ++amlHR9L/35mE/2Ss4gb0xCcY4VyTFLRE796vHysLAamqcyO+aFQyJIDBNslbH2/MrAvZiSEIedc/cqjmv4fbda2pXbv+F5a2szSsdkm9noiNURXt8edUhGUF6fSZWd1IJaXKFwD+49R6eCXD4Bkef7j9tRtNMVgW8BhRz/Qpy1TmeYk0doyjZoJSbePOReVHgkFsCFuQJ+Lgc4BxeAsK/cOiNDRmdNw0ctYhn/nQ498dYI5znzGLoJi1rav7Cn88rL3wLePVtDK5gl77Tki3gHEsIAQ2+IKgarj7Y8W1IQzV5V9N+0TjLqbg68WfKcOmBCOj3JkwJhVIkwDhc+JorXuZEPMEh0vvH3x7iqf+VAwXgd4diZiaJD1zHL9Snx6Wfg4IugreyhabQkcir+y5XgDtdx3Avs7lkeeCBwDvZoTUCXx5QrZkcEqWfYEiEYRs/EphmRALSNGR1Iclgdr5VFoELpzF4++f35w3/j0t5ucW3n2ch4PQCLuUXupsPRR7UA5FjSKrMtPcKAZJfagO4lGE7FH3YKMjorpK0ZxAv+i2JkJhtAMWWWFej4RhPR/cJ3DxwocCvXDi4SGZU4cu+K32XndiFWgopAl+0GApcwf1XvymJcFs39jExIBO4yUjU9MExBLQYc9H+W7+IgdESPRpciT+rKZPebVtaVq+1GYO/5xTAL3HASjNTGIgMvdjWbgc7JvdE1zIFpuC0U9ESiZyzBixzxWxj4Kwh8My34q+FK3KNLtmsA1qyrmKSNQOXCPUZd+ONelBTvFoUI/CYsqa/RhtKiyMf2CgSFqEPk59Y3uqnlZ8gFpswfSYyko23yVZYxzKGxGm49Zqxg1l8oz5Ra9XaRwHkuxepmgyhm0SoNy2KlbcEqK+9QqS9PNx9Ihm9U7gsR55SSJ1FBDNnkuWKxIZ0SDpXuOGwZdoUbOMDPHP4vBAgz2VlSEJAHZGJVbYIg7l/FO5KfIVvxC8pPPxMGcNMoevFDeStt2iqztE10n2TA4dgJH76YS9HDhKHD3iCx6ieFX84BAI3QQnngh76f5ruPQVbr5qZmck/5UjDc26lfrOvUBWy0Ogl8bCoOkMOns81TnC3cuUS9KW8+9A+fe3XYZOFUPG1u5epSSmDLw0s5s2F0W30ANeo+zJkJQz9SPZgzwYpEoktofhGVfmLOAB20boCbW1QWq/NpET/hnMecw/uSyAH4NJc3ECOU4nnkK1fj3S/i5dwb3R7k00AqQQUwt7Ie1qV0aY/VQX0J8hLPy7eBNXMHYZYDNxHZ2Qh6AuXJxq+AeRec/Q+JLhZV6hpXwQEzw7bf5v9uUf2vpq3qlhmy0IIGTkwYdCfSAFmqbdo+3XvDTDjFJde0mbeQLcn2n31xaAqJ0ixO/CLsT4I4G4DoncVTgRGNBtsCcjISWT+oeXZ4Iedw/8OsJI1aPnNKLX/60VvcZb94uasRxCkqlPQ11u1Sa2hHvB80WQENxVyzjns0/PiEByyil21Te6oisk3mNCEMrhouCFO3yEZTHHOCMy9eb/4Tmi8cVf3Lf7P53SY2hX3PSN033As3ETIMLHWumWEO9JXHA2y2SIBlIPpLGG2qvNsCIlIr+B1SWAqRKm2w6Blf7U+zCSBwJrfHG5i8J5Gax/cVonMlon7aHJX/gSvucIncRP93XCqkv7D8IFKFsLiBgHqUpXhE3pYjEcV1dk/JD9zFVCfEaQIVX8Jmfz7IIofcBKQ4OaG+C3xC2veX9CD+iAFXDNaGg9eTVxvkbJRJlW4Nk9Wk13kn696jWppRDe/8pDrYMO9ZyxZ98ReKSz9kWKLLyk2zCZgAniCkLJVX3n1M9DYbomyahWiv/KixRIV9hj/oFz87I+HLznbPTjpa+D+bZQnMuRsljTpv90vQUt/pK7jCFnA30B/jtroSF2/m/gpWn1aQs5WeA6ghzF8SdqWI20fghdSeDOCSCmLgTkfaGgGDmw7nHFkRzGtag57IHS2na06I+gzEphXo1w/Zx2BM/jKL2nZoFjHggtFQjYi8nSVRSXIE58RPbBObXk7uuIL9+rs/5Zo7suJInEUxgsiZZAWS25iBtpEiZeBgDtghEoAE0sjcayNq85M4tbu/LF5h51335PsGzQ09O875+vUS89lkWMyNOFoip2PuyWyMP/iU2XIZdfCCJNDjebDoBLQdpy7QQZC7s9c0wjHJervQNDu2jWzBW5MSAJMr7bP+Iv92BkS/GGgzjEn7MF1IRKFwwzbjbS4/slGOmhx9cZrFu7HSEefojNv3r0UaKfKOWzXsq1zEugbzlMDFsacRJJI/iJlK3vtkZ+PLZIVMFlKA32wbq2Kd5T0uCLZ1CPkAfCdzkz2EYscjDcZq2AWfziN2covN4kXE1lQXPPLTNM1xx3tbiepcO/t3SWm4w87qfh99SL0ZnY+LKFPLPeXVM2mIIoVWt+9Nk0I7nY4O79iGYqxZ8RVz289an6NVdJWnSKZvJQCAuHNiVaDxPAFoH392t9wot5t0/qmU95eEWNbU2udUW5sN9JVqcYlvAIfLeYC33oUzzxZgSktsv21mA7Uly1FA5VnoJFh6N244Wmv3YJGFv/TCPryaw+ZORlpZjQdq/2DYXr3EZskfed0G61P09ipTKmlTQ1067Rg5+PAk5FlQ9e0SWbGf2B/08kqymOTMVOznsALHHNFH4LFRKl2F/NOiYFl9khNHnSu9Ak5sq26Ynl/i2fdTle29Y1ugqmR5Yj4YT9pvslFyYCbw0mNFr5rVQm1LvkG27QMq9ph3t8fmn6r6SQ4oSbr5tz+J1kIawGzDxb6VYOvvWhobDTXfBeNv3b4aNm5XUinsCGqG2q/45m3+LoCOsddFceYhRx1Tsss9PLdPfJdErFMjYd3gddjiP0+XQjcRadZP6bwNLySvunFf20Czy6JqdEW2a96KxdYdOryBv1BjbuUq2yCHeh+6sk7fGmmPi50pe/1l5TyPe5oHW9oPnhPswLyf2TFDdCyYlhwBCstv5C1HwlW7xWoGT9XZt4qVj5WryLPLLD6h/5cMLEjWzgCeAIKNsLak92aBqBsHl4AJwl2N4jfvbSkBExGimv0nFvv09uDScQbjx+w4kPQjgjlW+g9ws9VEJvI2k8N6XxVu0uIwovgTFdunG24gBtaDi+y1YLQwZ8mwbip5fVlO3k0n0AEr/ETbtu8Vjkm+nNSiEb7X/3fMjBL5A8PdgG+/FnbexbFFExmEfetXAnisEKy5z44WVPpQZjSy/jzeGn4yDRsFGqhh87QPaDBWhlo37IFbe/C0xynS91d2tP/AJoJS0sVF6iwAAAAAElFTkSuQmCC);color:#fff;font-size:20px;font-family:"Terminal Dosis",sans-serif;text-shadow:1px 1px 0 transparent,2px 2px 0 #101010;overflow:hidden}h1{font-size:75px;font-weight:bold;line-height:1.5em;text-shadow:2px 2px 0 transparent,4px 4px 0 #101010}a,a:visited{color:#fff;text-decoration:none;border-bottom:2px dotted;transition:color .2s}a:hover{color:#aaa}a:active{color:#add8e6}.big{display:block;font-size:45px;font-weight:bold;line-height:1.3em;margin-bottom:10px;text-shadow:2px 2px 0 transparent,4px 4px 0 #101010}.wrapper div{position:absolute}.settings,nav{position:fixed;z-index:9999999;bottom:0;background:rgba(10,10,10,.5);font-family:Helvetica,Arial,sans-serif;font-weight:normal;font-size:20px}.settings{right:0;padding:10px 20px;border-radius:10px 0 0 0}.settings a{border:none}nav{left:0;border-radius:0 10px 0 0}nav li{float:left}nav a{display:block;width:40px;height:40px;line-height:40px;border:none;text-align:center;transition:.25s}nav li:last-child a{border-radius:0 10px 0 0}nav a:hover{background:rgba(15,15,15,.5)}.sp-canvas{display:none}.arrow{position:relative;display:inline-block}.demo{width:800px;font-size:30px;text-align:center;font-weight:bold}.demo .arrow{font-size:20px;animation:point-down .5s alternate infinite}.description{top:740px;left:180px;width:440px}.syntax{top:1510px;left:430px;width:400px}.scrollbar{top:1540px;left:1600px;width:400px}.rotations{left:2185px;top:660px;width:460px;transform:rotate(-90deg) translateY(2.5em)}.rotations .upside-down{font-size:42px;text-align:right;transform:rotate(180deg) translateY(3em)}.source{left:2200px;top:-800px;width:400px;transform:rotate(90deg) translateX(50px)}.follow{width:475px;left:1100px;top:-950px;transform:rotate(90deg) translateX(50px)}.follow .big{font-size:40px}.highlight{animation:highlight .2s alternate 6}@keyframes point-down{from{top:0;}to{top:5px;}}@keyframes highlight{to{background:lightblue;}}.sp-scroll-bar{position:fixed;z-index:9999;right:0;top:5%;width:10px;height:90%;border-radius:5px}.sp-scroll-bar:hover{background:#fff;background:rgba(255,255,255,.1)}.sp-scroll-bar .sp-scroll-handle{position:absolute;width:100%;height:50px;border-radius:inherit;background:gray;background:rgba(0,0,0,.7)}.sp-scroll-bar .sp-scroll-handle:hover{background:#000}
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Terminal+Dosis&subset=latin" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        (function () {
+            function b(a, b) {
+                return [].slice.call((b || document).querySelectorAll(a))
+            }
+            if (window.addEventListener) {
+                var a = window.StyleFix = {
+                    link: function (b) {
+                        try {
+                            if (!/\bstylesheet\b/i.test(b.rel) || !b.sheet.cssRules) return
+                        } catch (g) {
+                            return
+                        }
+                        var e = b.href || b.getAttribute("data-href"),
+                            d = e.replace(/[^\/]+$/, ""),
+                            f = b.parentNode,
+                            c = new XMLHttpRequest;
+                        c.open("GET", e);
+                        c.onreadystatechange = function () {
+                            if (4 === c.readyState) {
+                                var e = c.responseText;
+                                if (e && b.parentNode) {
+                                    e = a.fix(e, true, b);
+                                    d && (e = e.replace(/url\((?:'|")?(.+?)(?:'|")?\)/gi, function (b, a) {
+                                        return !/^([a-z]{3,10}:|\/)/i.test(a) ? 'url("' + d + a + '")' : b
+                                    }), e = e.replace(RegExp("\\b(behavior:\\s*?url\\('?\"?)" + d, "gi"), "$1"));
+                                    var g = document.createElement("style");
+                                    g.textContent = e;
+                                    g.media = b.media;
+                                    g.disabled = b.disabled;
+                                    g.setAttribute("data-href", b.getAttribute("href"));
+                                    f.insertBefore(g, b);
+                                    f.removeChild(b)
+                                }
+                            }
+                        };
+                        c.send(null);
+                        b.setAttribute("data-inprogress", "")
+                    },
+                    styleElement: function (b) {
+                        var c = b.disabled;
+                        b.textContent = a.fix(b.textContent, true, b);
+                        b.disabled = c
+                    },
+                    styleAttribute: function (b) {
+                        var c = b.getAttribute("style"),
+                            c = a.fix(c, false, b);
+                        b.setAttribute("style", c)
+                    },
+                    process: function () {
+                        b('link[rel~="stylesheet"]:not([data-inprogress])').forEach(StyleFix.link);
+                        b("style").forEach(StyleFix.styleElement);
+                        b("[style]").forEach(StyleFix.styleAttribute)
+                    },
+                    register: function (c, b) {
+                        (a.fixers = a.fixers || []).splice(void 0 === b ? a.fixers.length : b, 0, c)
+                    },
+                    fix: function (b, d) {
+                        for (var c = 0; c < a.fixers.length; c++) b = a.fixers[c](b, d) || b;
+                        return b
+                    },
+                    camelCase: function (a) {
+                        return a.replace(/-([a-z])/g, function (b, a) {
+                            return a.toUpperCase()
+                        }).replace("-", "")
+                    },
+                    deCamelCase: function (a) {
+                        return a.replace(/[A-Z]/g, function (a) {
+                            return "-" + a.toLowerCase()
+                        })
+                    }
+                };
+                (function () {
+                    setTimeout(function () {
+                        b('link[rel~="stylesheet"]').forEach(StyleFix.link)
+                    }, 10);
+                    document.addEventListener("DOMContentLoaded", StyleFix.process, false)
+                })()
+            }
+        })();
+        (function (b) {
+            if (window.StyleFix && window.getComputedStyle) {
+                var a = window.PrefixFree = {
+                    prefixCSS: function (d, e) {
+                        function b(b, c, e, f) {
+                            b = a[b];
+                            b.length && (b = RegExp(c + "(" + b.join("|") + ")" + e, "gi"), d = d.replace(b, f))
+                        }
+                        var c = a.prefix;
+                        b("functions", "(\\s|:|,)", "\\s*\\(", "$1" + c + "$2(");
+                        b("keywords", "(\\s|:)", "(\\s|;|\\}|$)", "$1" + c + "$2$3");
+                        b("properties", "(^|\\{|\\s|;)", "\\s*:", "$1" + c + "$2:");
+                        if (a.properties.length) {
+                            var f = RegExp("\\b(" + a.properties.join("|") + ")(?!:)", "gi");
+                            b("valueProperties", "\\b", ":(.+?);", function (a) {
+                                return a.replace(f, c + "$1")
+                            })
+                        }
+                        e && (b("selectors", "", "\\b", a.prefixSelector), b("atrules", "@", "\\b", "@" + c + "$1"));
+                        return d = d.replace(RegExp("-" + c, "g"), "-")
+                    },
+                    prefixSelector: function (b) {
+                        return b.replace(/^:{1,2}/, function (b) {
+                            return b + a.prefix
+                        })
+                    },
+                    prefixProperty: function (c, d) {
+                        var b = a.prefix + c;
+                        return d ? StyleFix.camelCase(b) : b
+                    }
+                };
+                (function () {
+                    var g = {},
+                        d = [],
+                        c = getComputedStyle(document.documentElement, null),
+                        e = document.createElement("div").style,
+                        j = function (a) {
+                            if ("-" === a.charAt(0)) {
+                                d.push(a);
+                                var a = a.split("-"),
+                                    b = a[1];
+                                for (g[b] = ++g[b] || 1; 3 < a.length;) a.pop(), b = a.join("-"), StyleFix.camelCase(b) in e && -1 === d.indexOf(b) && d.push(b)
+                            }
+                        };
+                    if (0 < c.length)
+                        for (var b = 0; b < c.length; b++) j(c[b]);
+                    else
+                        for (var h in c) j(StyleFix.deCamelCase(h));
+                    var b = 0,
+                        f, i;
+                    for (i in g) c = g[i], b < c && (f = i, b = c);
+                    a.prefix = "-" + f + "-";
+                    a.Prefix = StyleFix.camelCase(a.prefix);
+                    a.properties = [];
+                    for (b = 0; b < d.length; b++) h = d[b], 0 === h.indexOf(a.prefix) && (f = h.slice(a.prefix.length), StyleFix.camelCase(f) in e || a.properties.push(f));
+                    "Ms" == a.Prefix && !("transform" in e) && !("MsTransform" in e) && "msTransform" in e && a.properties.push("transform", "transform-origin");
+                    a.properties.sort()
+                })();
+                (function () {
+                    function d(b, a) {
+                        h[a] = "";
+                        h[a] = b;
+                        return !!h[a]
+                    }
+                    var b = {
+                        "linear-gradient": {
+                            property: "backgroundImage",
+                            params: "red, teal"
+                        },
+                        calc: {
+                            property: "width",
+                            params: "1px + 5%"
+                        },
+                        element: {
+                            property: "backgroundImage",
+                            params: "#foo"
+                        }
+                    };
+                    b["repeating-linear-gradient"] = b["repeating-radial-gradient"] = b["radial-gradient"] = b["linear-gradient"];
+                    var i = {
+                        initial: "color",
+                        "zoom-in": "cursor",
+                        "zoom-out": "cursor",
+                        box: "display",
+                        flexbox: "display",
+                        "inline-flexbox": "display"
+                    };
+                    a.functions = [];
+                    a.keywords = [];
+                    var h = document.createElement("div").style,
+                        f;
+                    for (f in b) {
+                        var e = b[f],
+                            c = e.property,
+                            e = f + "(" + e.params + ")";
+                        !d(e, c) && d(a.prefix + e, c) && a.functions.push(f)
+                    }
+                    for (var g in i) c = i[g], !d(g, c) && d(a.prefix + g, c) && a.keywords.push(g)
+                })();
+                (function () {
+                    function e(a) {
+                        g.textContent = a + "{}";
+                        return !!g.sheet.cssRules.length
+                    }
+                    var f = {
+                            ":read-only": null,
+                            ":read-write": null,
+                            ":any-link": null,
+                            "::selection": null
+                        },
+                        i = {
+                            keyframes: "name",
+                            viewport: null,
+                            document: 'regexp(".")'
+                        };
+                    a.selectors = [];
+                    a.atrules = [];
+                    var g = b.appendChild(document.createElement("style")),
+                        d;
+                    for (d in f) {
+                        var c = d + (f[d] ? "(" + f[d] + ")" : "");
+                        !e(c) && e(a.prefixSelector(c)) && a.selectors.push(d)
+                    }
+                    for (var h in i) c = h + " " + (i[h] || ""), !e("@" + c) && e("@" + a.prefix + c) && a.atrules.push(h);
+                    b.removeChild(g)
+                })();
+                a.valueProperties = ["transition", "transition-property"];
+                b.className += " " + a.prefix;
+                StyleFix.register(a.prefixCSS)
+            }
+        })(document.documentElement)
+    </script>
+    <!--[if lt IE 9]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <title>Sergio Razza</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#start">1</a>
+            </li>
+            <li><a href="#description">2</a>
+            </li>
+            <li><a href="#syntax">3</a>
+            </li>
+            <li><a href="#scrollbar">4</a>
+            </li>
+            <li><a href="#rotations">5</a>
+            </li>
+            <li><a href="#rotations-rotated">6</a>
+            </li>
+            <li><a href="#source">7</a>
+            </li>
+            <li><a href="#follow">8</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="settings">
+        <a href="" class="show-path">Ver Camino</a>
+    </div>
+    <div class="wrapper">
+        <div class="demo">
+            <h1>
+                Sergio Razza</h1>
+            <span class="arrow">&darr;</span> Desarrollador Senior en: <span class="arrow">&darr;</span>
+        </div>
+        <div class="description">
+            <span class="big">ASP.NET, C#, ASP.NET MVC</span>
+        </div>
+        <div class="syntax">
+            <span class="big">Html, Css, Javascript, jQuery.</span>
+        </div>
+        <div class="scrollbar">
+            <span class="big">Sql Server, Entity Framework.</span>
+        </div>
+        <div class="rotations">
+            <span class="big">Analista Programador</span>  <span class="upside-down big">Universitario</span>
+        </div>
+        <div class="source">
+            <span class="big">Más de 10 años de experiencia con tecnologías Microsoft.</span>
+        </div>
+        <div class="follow">
+            <span class="big">Para más información o contacto, envie un email a <a href="mailto:srazza@gmail.com">
+                srazza@gmail.com</a><br /><br />Muchas Gracias por su visita.</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery.easing.jswing = jQuery.easing.swing, jQuery.extend(jQuery.easing, {
+            def: "easeOutQuad",
+            swing: function (n, t, i, r, u) {
+                return jQuery.easing[jQuery.easing.def](n, t, i, r, u)
+            },
+            easeInQuad: function (n, t, i, r, u) {
+                return r * (t /= u) * t + i
+            },
+            easeOutQuad: function (n, t, i, r, u) {
+                return -r * (t /= u) * (t - 2) + i
+            },
+            easeInOutQuad: function (n, t, i, r, u) {
+                return (t /= u / 2) < 1 ? r / 2 * t * t + i : -r / 2 * (--t * (t - 2) - 1) + i
+            },
+            easeInCubic: function (n, t, i, r, u) {
+                return r * (t /= u) * t * t + i
+            },
+            easeOutCubic: function (n, t, i, r, u) {
+                return r * ((t = t / u - 1) * t * t + 1) + i
+            },
+            easeInOutCubic: function (n, t, i, r, u) {
+                return (t /= u / 2) < 1 ? r / 2 * t * t * t + i : r / 2 * ((t -= 2) * t * t + 2) + i
+            },
+            easeInQuart: function (n, t, i, r, u) {
+                return r * (t /= u) * t * t * t + i
+            },
+            easeOutQuart: function (n, t, i, r, u) {
+                return -r * ((t = t / u - 1) * t * t * t - 1) + i
+            },
+            easeInOutQuart: function (n, t, i, r, u) {
+                return (t /= u / 2) < 1 ? r / 2 * t * t * t * t + i : -r / 2 * ((t -= 2) * t * t * t - 2) + i
+            },
+            easeInQuint: function (n, t, i, r, u) {
+                return r * (t /= u) * t * t * t * t + i
+            },
+            easeOutQuint: function (n, t, i, r, u) {
+                return r * ((t = t / u - 1) * t * t * t * t + 1) + i
+            },
+            easeInOutQuint: function (n, t, i, r, u) {
+                return (t /= u / 2) < 1 ? r / 2 * t * t * t * t * t + i : r / 2 * ((t -= 2) * t * t * t * t + 2) + i
+            },
+            easeInSine: function (n, t, i, r, u) {
+                return -r * Math.cos(t / u * (Math.PI / 2)) + r + i
+            },
+            easeOutSine: function (n, t, i, r, u) {
+                return r * Math.sin(t / u * (Math.PI / 2)) + i
+            },
+            easeInOutSine: function (n, t, i, r, u) {
+                return -r / 2 * (Math.cos(Math.PI * t / u) - 1) + i
+            },
+            easeInExpo: function (n, t, i, r, u) {
+                return t == 0 ? i : r * Math.pow(2, 10 * (t / u - 1)) + i
+            },
+            easeOutExpo: function (n, t, i, r, u) {
+                return t == u ? i + r : r * (-Math.pow(2, -10 * t / u) + 1) + i
+            },
+            easeInOutExpo: function (n, t, i, r, u) {
+                return t == 0 ? i : t == u ? i + r : (t /= u / 2) < 1 ? r / 2 * Math.pow(2, 10 * (t - 1)) + i : r / 2 * (-Math.pow(2, -10 * --t) + 2) + i
+            },
+            easeInCirc: function (n, t, i, r, u) {
+                return -r * (Math.sqrt(1 - (t /= u) * t) - 1) + i
+            },
+            easeOutCirc: function (n, t, i, r, u) {
+                return r * Math.sqrt(1 - (t = t / u - 1) * t) + i
+            },
+            easeInOutCirc: function (n, t, i, r, u) {
+                return (t /= u / 2) < 1 ? -r / 2 * (Math.sqrt(1 - t * t) - 1) + i : r / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + i
+            },
+            easeInElastic: function (n, t, i, r, u) {
+                var o = 1.70158,
+                    f = 0,
+                    e = r;
+                return t == 0 ? i : (t /= u) == 1 ? i + r : (f || (f = u * .3), e < Math.abs(r) ? (e = r, o = f / 4) : o = f / (2 * Math.PI) * Math.asin(r / e), -(e * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * u - o) * 2 * Math.PI / f)) + i)
+            },
+            easeOutElastic: function (n, t, i, r, u) {
+                var o = 1.70158,
+                    f = 0,
+                    e = r;
+                return t == 0 ? i : (t /= u) == 1 ? i + r : (f || (f = u * .3), e < Math.abs(r) ? (e = r, o = f / 4) : o = f / (2 * Math.PI) * Math.asin(r / e), e * Math.pow(2, -10 * t) * Math.sin((t * u - o) * 2 * Math.PI / f) + r + i)
+            },
+            easeInOutElastic: function (n, t, i, r, u) {
+                var o = 1.70158,
+                    f = 0,
+                    e = r;
+                return t == 0 ? i : (t /= u / 2) == 2 ? i + r : (f || (f = u * .3 * 1.5), e < Math.abs(r) ? (e = r, o = f / 4) : o = f / (2 * Math.PI) * Math.asin(r / e), t < 1) ? -.5 * e * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * u - o) * 2 * Math.PI / f) + i : e * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * u - o) * 2 * Math.PI / f) * .5 + r + i
+            },
+            easeInBack: function (n, t, i, r, u, f) {
+                return f == undefined && (f = 1.70158), r * (t /= u) * t * ((f + 1) * t - f) + i
+            },
+            easeOutBack: function (n, t, i, r, u, f) {
+                return f == undefined && (f = 1.70158), r * ((t = t / u - 1) * t * ((f + 1) * t + f) + 1) + i
+            },
+            easeInOutBack: function (n, t, i, r, u, f) {
+                return (f == undefined && (f = 1.70158), (t /= u / 2) < 1) ? r / 2 * t * t * (((f *= 1.525) + 1) * t - f) + i : r / 2 * ((t -= 2) * t * (((f *= 1.525) + 1) * t + f) + 2) + i
+            },
+            easeInBounce: function (n, t, i, r, u) {
+                return r - jQuery.easing.easeOutBounce(n, u - t, 0, r, u) + i
+            },
+            easeOutBounce: function (n, t, i, r, u) {
+                return (t /= u) < 1 / 2.75 ? r * 7.5625 * t * t + i : t < 2 / 2.75 ? r * (7.5625 * (t -= 1.5 / 2.75) * t + .75) + i : t < 2.5 / 2.75 ? r * (7.5625 * (t -= 2.25 / 2.75) * t + .9375) + i : r * (7.5625 * (t -= 2.625 / 2.75) * t + .984375) + i
+            },
+            easeInOutBounce: function (n, t, i, r, u) {
+                return t < u / 2 ? jQuery.easing.easeInBounce(n, t * 2, 0, r, u) * .5 + i : jQuery.easing.easeOutBounce(n, t * 2 - u, 0, r, u) * .5 + r * .5 + i
+            }
+        });
+        (function (n, t, r, u) {
+            function bt(t, r) {
+                function w(n, t) {
+                    h = n, s = t
+                }
+
+                function p(n, t) {
+                    v = Math.min(n, v), l = Math.min(t, l), b = Math.max(n, b), k = Math.max(t, k)
+                }
+                var y = 40,
+                    d = t,
+                    g = r,
+                    h = 0,
+                    s = 0,
+                    u = 0,
+                    b = 0,
+                    k = 0,
+                    v = 0,
+                    l = 0,
+                    e = [{
+                        method: "moveTo",
+                        args: [0, 0]
+                    }],
+                    f = [],
+                    c = {},
+                    a = {
+                        rotate: null,
+                        callback: null,
+                        name: null
+                    };
+                this.rotate = function (t, i) {
+                    var r = n.extend({}, a, i),
+                        v = Math.abs(t - u),
+                        l = Math.round(v / g) * o,
+                        y = (t - u) / l,
+                        e = 1;
+                    if (!nt) return (r.name || r.callback) && this.moveTo(h, s, {
+                        callback: r.callback,
+                        name: r.name
+                    }), this;
+                    for (; e <= l; e++) f.push({
+                        x: h,
+                        y: s,
+                        rotate: u + y * e,
+                        callback: e === l ? r.callback : null
+                    });
+                    return r.name && (c[r.name] = f.length - 1), u = t % (Math.PI * 2), this
+                }, this.moveTo = function (t, r, s) {
+                    var h = n.extend({}, a, s),
+                        l = f.length ? o : 1;
+                    for (i = 0; i < l; i++) f.push({
+                        x: t,
+                        y: r,
+                        rotate: h.rotate !== null ? h.rotate : u,
+                        callback: i === l - 1 ? h.callback : null
+                    });
+                    return h.name && (c[h.name] = f.length - 1), w(t, r), p(t, r), e.push({
+                        method: "moveTo",
+                        args: arguments
+                    }), this
+                }, this.lineTo = function (t, i, r) {
+                    for (var v = n.extend({}, a, r), k = t - h, g = i - s, tt = ot(k, g), y = Math.round(tt / d) * o, rt = k / y, ut = g / y, b = v.rotate !== null && nt, it = b ? (v.rotate - u) / y : 0, l = 1; l <= y; l++) f.push({
+                        x: h + rt * l,
+                        y: s + ut * l,
+                        rotate: u + it * l,
+                        callback: l === y ? v.callback : null
+                    });
+                    return v.name && (c[v.name] = f.length - 1), u = b ? v.rotate : u, w(t, i), p(t, i), e.push({
+                        method: "lineTo",
+                        args: arguments
+                    }), this
+                }, this.arc = function (t, i, r, l, v, y, b) {
+                    var g = n.extend({}, a, b),
+                        ft = t + Math.cos(l) * r,
+                        it = i + Math.sin(l) * r,
+                        lt = t + Math.cos(v) * r,
+                        ht = i + Math.sin(v) * r,
+                        et = ct(l, v, y),
+                        ot = r * et,
+                        tt = Math.round(ot / d) * o,
+                        ut = et / tt * (y ? -1 : 1),
+                        rt = g.rotate !== null && nt,
+                        st = rt ? (g.rotate - u) / tt : 0,
+                        k = 1;
+                    for ((h !== ft || s !== it) && this.lineTo(ft, it); k <= tt; k++) f.push({
+                        x: t + r * Math.cos(l + ut * k),
+                        y: i + r * Math.sin(l + ut * k),
+                        rotate: u + st * k,
+                        callback: k === tt ? g.callback : null
+                    });
+                    return g.name && (c[g.name] = f.length - 1), u = rt ? g.rotate : u, w(lt, ht), p(t + r, i + r), p(t - r, i - r), e.push({
+                        method: "arc",
+                        args: arguments
+                    }), this
+                }, this.getPath = function () {
+                    return f
+                }, this.getNameMap = function () {
+                    return c
+                }, this.getCanvasPath = function () {
+                    for (var n = 0; n < e.length; n++) e[n].args[0] -= this.getPathOffsetX(), e[n].args[1] -= this.getPathOffsetY();
+                    return e
+                }, this.getPathWidth = function () {
+                    return b - v + y
+                }, this.getPathHeight = function () {
+                    return k - l + y
+                }, this.getPathOffsetX = function () {
+                    return v - y / 2
+                }, this.getPathOffsetY = function () {
+                    return l - y / 2
+                }
+            }
+
+            function kt() {
+                if (p.scrollBar) {
+                    a = n("<div>").addClass("sp-scroll-bar").on("mousedown", function (n) {
+                        var t = Math.round((n.offsetY || n.clientY) / a.height() * (f.length - 1));
+                        return Math.abs(t - e) > w && (t = e + 5 * o * (t > e ? 1 : -1)), h(t), n.preventDefault(), !1
+                    }), y = n("<div>").addClass("sp-scroll-handle").on({
+                        click: function (n) {
+                            return n.preventDefault(), !1
+                        },
+                        mousedown: function (n) {
+                            if (n.button === 0) return tt = !0, n.preventDefault(), !1
+                        }
+                    });
+                    n(r).on({
+                        mouseup: function () {
+                            tt = !1
+                        },
+                        mousemove: function (n) {
+                            tt && ti(n)
+                        }
+                    });
+                    n("body").prepend(a.append(y))
+                }
+            }
+
+            function wt() {
+                if (p.drawPath && dt) {
+                    var t, i = {
+                        position: "absolute",
+                        "z-index": 9998,
+                        left: s.getPathOffsetX(),
+                        top: s.getPathOffsetY(),
+                        "pointer-events": "none"
+                    };
+                    v(i, "user-select", "none"), v(i, "user-drag", "none"), t = n("<canvas>").addClass("sp-canvas").css(i).prependTo(b), t[0].width = s.getPathWidth(), t[0].height = s.getPathHeight(), yt(t[0].getContext("2d"), s.getCanvasPath())
+                }
+            }
+
+            function yt(n, t) {
+                var i = 0;
+                for (n.shadowBlur = 15, n.shadowColor = "black", n.strokeStyle = "white", n.lineJoin = "round", n.lineCap = "round", n.lineWidth = 10; i < t.length; i++) n[t[i].method].apply(n, t[i].args);
+                n.stroke()
+            }
+
+            function rt(i) {
+                var r = i.originalEvent.wheelDelta || -i.originalEvent.detail,
+                    u = r / Math.abs(r);
+                i.preventDefault(), n(t).scrollTop(0).scrollLeft(0), c(-u * o)
+            }
+
+            function pt(n) {
+                if (!/^text/.test(n.target.type)) switch (n.keyCode) {
+                case 40:
+                    c(o);
+                    break;
+                case 38:
+                    c(-o);
+                    break;
+                case 34:
+                    c(w);
+                    break;
+                case 33:
+                    c(-w);
+                    break;
+                case 32:
+                    c(w * (n.shiftKey ? -1 : 1));
+                    break;
+                case 35:
+                    h(f.length - 1);
+                    break;
+                case 36:
+                    h(0)
+                }
+            }
+
+            function ti(n) {
+                var t, i = n.clientY - a.offset().top;
+                t = it(Math.round(i / a.height() * (f.length - 1)), 0, f.length - 1), h(st(t, o))
+            }
+
+            function c(n) {
+                h(ut(e + n))
+            }
+
+            function ni(t, i, r, u) {
+                if (t !== 0 && !l) {
+                    if (!i || typeof i != "number") return typeof i == "function" && i(), c(t);
+                    l = !0;
+                    var f = i / 1e3 * ii,
+                        y = e,
+                        o = 0,
+                        a, s, v = setInterval(function () {
+                            a = Math.round((n.easing[r] || n.easing.swing)(++o / f, i / f * o, 0, t, i)), s = ut(y + a), o === f && (clearInterval(v), typeof r == "function" ? r() : u && u(), l = !1), h(s, !0)
+                        }, i / f)
+                }
+            }
+
+            function h(n, t) {
+                if (!l || t) {
+                    var i;
+                    f[n] && (i = f[n].callback, b.css(ht(f[n]))), y && y.css("top", n / (f.length - 1) * (a.height() - y.height()) + "px"), i && n !== e && !l && i(), e = n
+                }
+            }
+
+            function gt(n) {
+                return s.getNameMap()[n]
+            }
+
+            function ut(n) {
+                if (p.wrapAround)
+                    if (l) {
+                        while (n < 0) n += f.length;
+                        while (n >= f.length) n -= f.length
+                    } else n < 0 && (n = f.length - 1), n >= f.length && (n = 0);
+                else n = it(n, 0, f.length - 1);
+                return n
+            }
+
+            function ht(i) {
+                var u = i.x - n(t).width() / 2,
+                    f = i.y - n(t).height() / 2,
+                    r = {};
+                return d(i.rotate) === 0 ? (r.left = -u, r.top = -f, v(r, "transform-origin", ""), v(r, "transform", "")) : (r.left = r.top = "", v(r, "transform-origin", i.x + "px " + i.y + "px"), v(r, "transform", "translate(" + -u + "px, " + -f + "px) rotate(" + i.rotate + "rad)")), r
+            }
+
+            function et() {
+                var i = /^(Moz|Webkit|Khtml|O|ms|Icab)(?=[A-Z])/,
+                    t = r.getElementsByTagName("script")[0],
+                    n;
+                for (n in t.style)
+                    if (i.test(n)) return n.match(i)[0];
+                return "WebkitOpacity" in t.style ? "Webkit" : "KhtmlOpacity" in t.style ? "Khtml" : ""
+            }
+
+            function v(n, t, i) {
+                n[lt + t] = n[t] = i
+            }
+
+            function at() {
+                for (var i = r.createElement("dummy").style, t = ["transform", "WebkitTransform", "MozTransform", "OTransform", "msTransform", "KhtmlTransform"], n = 0; n < t.length; n++)
+                    if (i[t[n]] !== u) return !0;
+                return !1
+            }
+
+            function vt() {
+                return !!r.createElement("canvas").getContext
+            }
+
+            function ct(n, t, i) {
+                var u = d(n),
+                    r = d(t),
+                    f = Math.abs(u - r),
+                    e = Math.PI * 2 - f;
+                return i && u < r || !i && u > r || u === r && n !== t ? e : f
+            }
+
+            function it(n, t, i) {
+                return n > i ? i : n < t ? t : n
+            }
+
+            function st(n, t) {
+                var i = n % t;
+                return i > t / 2 ? n + t - i : n - i
+            }
+
+            function d(n) {
+                while (n < 0) n += Math.PI * 2;
+                return n % (Math.PI * 2)
+            }
+
+            function ot(n, t) {
+                return Math.sqrt(n * n + t * t)
+            }
+            var lt = "-" + et().toLowerCase() + "-",
+                nt = at(),
+                dt = vt(),
+                ii = 60,
+                o = 50,
+                w = o * 5,
+                ft = !1,
+                tt = !1,
+                l = !1,
+                e, s, f, b, a, y, g = {
+                    scrollSpeed: 50,
+                    rotationSpeed: Math.PI / 15
+                },
+                p = {
+                    wrapAround: !1,
+                    drawPath: !1,
+                    scrollBar: !0
+                },
+                k = {
+                    init: function (i) {
+                        (this.length > 1 || ft) && n.error("jQuery.scrollPath can only be initialized on *one* element *once*"), n.extend(p, i), ft = !0, b = this, f = s.getPath(), wt(), kt(), h(0), b.css("position", "relative");
+                        n(r).on({
+                            mousewheel: rt,
+                            DOMMouseScroll: "onmousewheel" in r ? null : rt,
+                            keydown: pt,
+                            mousedown: function (n) {
+                                if (n.button === 1) return n.preventDefault(), !1
+                            }
+                        });
+                        n(t).on("resize", function () {
+                            h(e)
+                        });
+                        return this
+                    },
+                    getPath: function (t) {
+                        return n.extend(g, t), s || (s = new bt(g.scrollSpeed, g.rotationSpeed))
+                    },
+                    scrollTo: function (t, i, r, o) {
+                        var h = gt(t),
+                            s;
+                        return h === u && n.error("jQuery.scrollPath could not find scroll target with name '" + t + "'"), s = h - e, p.wrapAround && Math.abs(s) > f.length / 2 && (s = h > e ? -e - f.length + h : f.length - e + h), ni(s, i, r, o), this
+                    }
+                };
+            n.fn.scrollPath = function (t) {
+                if (k[t]) return k[t].apply(this, Array.prototype.slice.call(arguments, 1));
+                if (typeof t != "object" && t) n.error("Method " + t + " does not exist on jQuery.scrollPath");
+                else return k.init.apply(this, arguments)
+            }
+        })(jQuery, window, document);
+        $(document).ready(init);
+
+        function init() {
+            $.fn.scrollPath("getPath").moveTo(400, 50, {
+                name: "start"
+            }).lineTo(400, 800, {
+                name: "description"
+            }).arc(200, 1200, 400, -Math.PI / 2, Math.PI / 2, true).lineTo(600, 1600, {
+                callback: function () {
+                    a($(".settings"))
+                },
+                name: "syntax"
+            }).lineTo(1750, 1600, {
+                callback: function () {
+                    a($(".sp-scroll-handle"))
+                },
+                name: "scrollbar"
+            }).arc(1800, 1e3, 600, Math.PI / 2, 0, true, {
+                rotate: Math.PI / 2
+            }).lineTo(2400, 750, {
+                name: "rotations"
+            }).rotate(3 * Math.PI / 2, {
+                name: "rotations-rotated"
+            }).lineTo(2400, -700, {
+                name: "source"
+            }).arc(2250, -700, 150, 0, -Math.PI / 2, true).lineTo(1350, -850, {
+                name: "follow"
+            }).arc(1300, 50, 900, -Math.PI / 2, -Math.PI, true, {
+                rotate: Math.PI * 2,
+                name: "end"
+            });
+            $(".wrapper").scrollPath({
+                drawPath: true,
+                wrapAround: true
+            });
+            $("nav").find("a").each(function () {
+                var a = $(this).attr("href").replace("#", "");
+                $(this).click(function (b) {
+                    b.preventDefault();
+                    $.fn.scrollPath("scrollTo", a, 1e3, "easeInOutSine")
+                })
+            });
+            $(".settings .show-path").click(function (a) {
+                a.preventDefault();
+                $(".sp-canvas").toggle()
+            }).toggle(function () {
+                $(this).text("Ocultar Camino")
+            }, function () {
+                $(this).text("Ver Camino")
+            });
+
+            function a(a) {
+                if (!a.hasClass("highlight")) {
+                    a.addClass("highlight");
+                    setTimeout(function () {
+                        a.removeClass("highlight")
+                    }, 2e3)
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
